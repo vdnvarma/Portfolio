@@ -1,4 +1,22 @@
+# Environment variables
 .env
-# .gitignore
+
+# Dependencies
 node_modules/
+
+# Cache files
 .cache/
+node_modules/.cache/
+.next/
+dist/
+build/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
