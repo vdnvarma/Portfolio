@@ -48,7 +48,7 @@ const ServiceCard = ({ index, title, icon, description }) => {
 
 const About = () => {
   return (
-    <section id="about" className="min-h-screen py-20 px-6 flex items-center relative overflow-hidden">
+    <section id="about" className="min-h-screen py-16 md:py-20 px-6 flex items-center relative overflow-hidden mt-10 sm:mt-0">
       {/* Background elements */}
       <div className="absolute top-1/4 left-0 w-64 h-64 rounded-full bg-green-500/5 blur-3xl"></div>
       <div className="absolute bottom-1/4 right-0 w-80 h-80 rounded-full bg-green-700/5 blur-3xl"></div>

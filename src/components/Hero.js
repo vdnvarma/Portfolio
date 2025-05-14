@@ -5,13 +5,13 @@ import { motion } from 'framer-motion';
 const AnimatedParticles = () => {
   const particles = Array(30).fill().map((_, i) => ({
     id: i,
-    size: Math.random() * 8 + 2, // Random size between 2-10px
-    x: Math.random() * 100, // Random x position 0-100%
-    y: Math.random() * 100, // Random y position 0-100%
-    duration: Math.random() * 20 + 15, // Random animation duration 15-35s
-    delay: Math.random() * 5, // Random delay 0-5s
-    blur: Math.random() * 2 + 1, // Random blur 1-3px
-    opacity: Math.random() * 0.2 + 0.1 // Random opacity 0.1-0.3
+    size: Math.random() * 10 + 3, // Increased size between 3-13px (was 2-10px)
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    duration: Math.random() * 20 + 15,
+    delay: Math.random() * 5,
+    blur: Math.random() * 2 + 1,
+    opacity: Math.random() * 0.4 + 0.2 // Increased opacity 0.2-0.6 (was 0.1-0.3)
   }));
 
   return (
@@ -25,8 +25,8 @@ const AnimatedParticles = () => {
             height: particle.size,
             left: `${particle.x}%`,
             top: `${particle.y}%`,
-            background: `radial-gradient(circle at center, rgba(16, 185, 129, ${particle.opacity + 0.1}) 0%, rgba(16, 185, 129, 0) 70%)`,
-            boxShadow: `0 0 ${particle.blur * 2}px rgba(16, 185, 129, ${particle.opacity})`,
+            background: `radial-gradient(circle at center, rgba(16, 185, 129, ${particle.opacity + 0.15}) 0%, rgba(16, 185, 129, 0) 70%)`,
+            boxShadow: `0 0 ${particle.blur * 3}px rgba(16, 185, 129, ${particle.opacity + 0.2})`,
             filter: `blur(${particle.blur}px)`
           }}
           animate={{
@@ -61,11 +61,11 @@ const AnimatedParticles = () => {
 const StarryBackground = () => {
   const stars = Array(100).fill().map((_, i) => ({
     id: i,
-    size: Math.random() * 1.5 + 0.5, // Random size between 0.5-2px
-    x: Math.random() * 100, // Random x position 0-100%
-    y: Math.random() * 100, // Random y position 0-100%
-    opacity: Math.random() * 0.5 + 0.3, // Random opacity 0.3-0.8
-    blinkDuration: Math.random() * 3 + 2 // Random blink duration 2-5s
+    size: Math.random() * 2 + 0.5, // Increased size between 0.5-2.5px (was 0.5-2px)
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    opacity: Math.random() * 0.6 + 0.4, // Increased opacity 0.4-1.0 (was 0.3-0.8)
+    blinkDuration: Math.random() * 3 + 2
   }));
 
   return (
@@ -79,7 +79,7 @@ const StarryBackground = () => {
             height: star.size,
             left: `${star.x}%`,
             top: `${star.y}%`,
-            boxShadow: `0 0 ${star.size}px rgba(16, 185, 129, ${star.opacity})`,
+            boxShadow: `0 0 ${star.size * 1.5}px rgba(16, 185, 129, ${star.opacity})`,
           }}
           animate={{
             opacity: [star.opacity, star.opacity * 0.5, star.opacity],
@@ -100,12 +100,12 @@ const StarryBackground = () => {
 const CodeLines = () => {
   const lines = Array(15).fill().map((_, i) => ({
     id: i,
-    width: Math.random() * 40 + 20, // Random width 20-60%
-    left: Math.random() * 100, // Random position
-    opacity: Math.random() * 0.3 + 0.05, // Random opacity
-    delay: Math.random() * 5, // Random delay
-    duration: Math.random() * 3 + 5, // Random duration
-    height: Math.random() < 0.3 ? 2 : 1 // Some lines thicker than others
+    width: Math.random() * 40 + 20,
+    left: Math.random() * 100,
+    opacity: Math.random() * 0.5 + 0.1, // Increased opacity 0.1-0.6 (was 0.05-0.35)
+    delay: Math.random() * 5,
+    duration: Math.random() * 3 + 5,
+    height: Math.random() < 0.3 ? 2 : 1
   }));
 
   return (
@@ -125,7 +125,7 @@ const CodeLines = () => {
           animate={{
             x: [-100, 200],
             opacity: [0, line.opacity, 0],
-            boxShadow: ['0 0 0px transparent', `0 0 8px rgba(16, 185, 129, ${line.opacity * 2})`, '0 0 0px transparent']
+            boxShadow: ['0 0 0px transparent', `0 0 10px rgba(16, 185, 129, ${line.opacity * 3})`, '0 0 0px transparent']
           }}
           transition={{
             duration: line.duration,
@@ -158,12 +158,12 @@ const FloatingShapes = () => {
           key={shape.id}
           className={`absolute ${
             shape.shape === 'circle' 
-              ? 'rounded-full border border-green-500/30' 
+              ? 'rounded-full border-2 border-green-500/40' // Increased opacity /40 (was /30)
               : shape.shape === 'square'
-                ? 'border border-green-500/30' 
+                ? 'border-2 border-green-500/40' // Increased opacity /40 (was /30)
                 : shape.shape === 'diamond'
-                  ? 'border border-green-500/30 rotate-45'
-                  : 'border-l-[18px] border-r-[18px] border-b-[30px] border-l-transparent border-r-transparent border-b-green-500/30'
+                  ? 'border-2 border-green-500/40 rotate-45' // Increased opacity /40 (was /30)
+                  : 'border-l-[18px] border-r-[18px] border-b-[30px] border-l-transparent border-r-transparent border-b-green-500/40' // Increased opacity /40 (was /30)
           }`}
           style={{
             width: shape.shape !== 'triangle' ? `${shape.size}px` : 0,
@@ -171,7 +171,7 @@ const FloatingShapes = () => {
             left: `${shape.x}%`,
             top: `${shape.y}%`,
             rotate: `${shape.rotation}deg`,
-            boxShadow: '0 0 15px rgba(16, 185, 129, 0.1)',
+            boxShadow: '0 0 15px rgba(16, 185, 129, 0.2)',
             backdropFilter: 'blur(2px)'
           }}
           animate={{
@@ -265,7 +265,7 @@ const ScrollIndicator = () => {
 
   return (
     <motion.div 
-      className="absolute bottom-10 w-full flex justify-center items-center"
+      className="absolute bottom-20 sm:bottom-16 md:bottom-10 w-full flex justify-center items-center"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.5, duration: 1 }}
@@ -327,16 +327,16 @@ const Hero = () => {
   ];
 
   return (
-    <section id="home" className="relative w-full h-screen mx-auto flex items-center justify-center overflow-hidden pt-[80px] sm:pt-[100px] md:pt-[120px]">
+    <section id="home" className="relative w-full min-h-screen mx-auto flex items-center justify-center overflow-hidden pt-[80px] sm:pt-[100px] md:pt-[120px] pb-[80px] sm:pb-[100px] md:pb-[120px]">
       {/* Interactive background elements */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0iIzEwYjk4MSIgZmlsbC1vcGFjaXR5PSIwLjAzIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxjaXJjbGUgY3g9IjEiIGN5PSIxIiByPSIxIi8+PC9nPjwvc3ZnPg==')] z-0 opacity-60"></div>
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0iIzEwYjk4MSIgZmlsbC1vcGFjaXR5PSIwLjA1IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxjaXJjbGUgY3g9IjEiIGN5PSIxIiByPSIxIi8+PC9nPjwvc3ZnPg==')] z-0 opacity-80"></div>
       <AnimatedParticles />
       <StarryBackground />
       <CodeLines />
       <FloatingShapes />
       
       {/* Main content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-center gap-6 sm:gap-8 md:gap-10 z-10 mt-4 sm:mt-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-center gap-10 sm:gap-12 md:gap-16 z-10 mt-4 sm:mt-0">
         <motion.div
           className="flex-1"
           initial={{ opacity: 0 }}
@@ -396,7 +396,7 @@ const Hero = () => {
             </div>
             
             <motion.div 
-              className="flex mt-8"
+              className="flex mt-10 sm:mt-12"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 1 }}
@@ -441,7 +441,7 @@ const Hero = () => {
         </motion.div>
 
         <motion.div 
-          className="w-full md:w-auto flex justify-center"
+          className="w-full md:w-auto flex justify-center mt-8 sm:mt-10"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
@@ -449,25 +449,25 @@ const Hero = () => {
           <div className="relative">
             {/* Animated rings around profile */}
             <motion.div 
-              className="absolute -inset-1 rounded-full border-2 border-dashed border-green-500/30"
+              className="absolute -inset-1 rounded-full border-2 border-dashed border-green-500/40"
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             />
             <motion.div 
-              className="absolute -inset-4 rounded-full border-2 border-dashed border-green-500/20"
+              className="absolute -inset-4 rounded-full border-2 border-dashed border-green-500/30"
               animate={{ rotate: -360 }}
               transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
             />
             
             {/* Profile container with enhanced glow */}
-            <div className="floating w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full relative">
+            <div className="floating w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full relative">
               <motion.div
-                className="absolute inset-0 rounded-full green-gradient-bg opacity-80"
+                className="absolute inset-0 rounded-full green-gradient-bg opacity-90"
                 animate={{ 
                   boxShadow: [
-                    '0 0 20px rgba(16, 185, 129, 0.5)', 
-                    '0 0 30px rgba(16, 185, 129, 0.7)', 
-                    '0 0 20px rgba(16, 185, 129, 0.5)'
+                    '0 0 25px rgba(16, 185, 129, 0.6)', 
+                    '0 0 35px rgba(16, 185, 129, 0.8)', 
+                    '0 0 25px rgba(16, 185, 129, 0.6)'
                   ] 
                 }}
                 transition={{ duration: 3, repeat: Infinity }}
@@ -494,13 +494,13 @@ const Hero = () => {
               
               {/* Floating tech badges with enhanced animations */}
               <motion.div
-                className="absolute -top-5 -right-5 w-14 h-14 bg-primary rounded-full flex items-center justify-center text-2xl shadow-lg shadow-green-500/20"
+                className="absolute -top-5 -right-5 w-14 h-14 bg-primary rounded-full flex items-center justify-center text-2xl shadow-lg shadow-green-500/30"
                 animate={{ 
                   y: [0, -10, 0],
                   boxShadow: [
-                    '0 4px 12px rgba(16, 185, 129, 0.2)',
-                    '0 8px 20px rgba(16, 185, 129, 0.4)',
-                    '0 4px 12px rgba(16, 185, 129, 0.2)'
+                    '0 4px 12px rgba(16, 185, 129, 0.3)',
+                    '0 8px 20px rgba(16, 185, 129, 0.5)',
+                    '0 4px 12px rgba(16, 185, 129, 0.3)'
                   ]
                 }}
                 transition={{ 
@@ -515,13 +515,13 @@ const Hero = () => {
               </motion.div>
               
               <motion.div
-                className="absolute -bottom-2 -left-8 w-16 h-16 bg-primary rounded-full flex items-center justify-center text-3xl shadow-lg shadow-green-500/20"
+                className="absolute -bottom-2 -left-8 w-16 h-16 bg-primary rounded-full flex items-center justify-center text-3xl shadow-lg shadow-green-500/30"
                 animate={{ 
                   y: [0, -8, 0],
                   boxShadow: [
-                    '0 4px 12px rgba(16, 185, 129, 0.2)',
-                    '0 8px 20px rgba(16, 185, 129, 0.4)',
-                    '0 4px 12px rgba(16, 185, 129, 0.2)'
+                    '0 4px 12px rgba(16, 185, 129, 0.3)',
+                    '0 8px 20px rgba(16, 185, 129, 0.5)',
+                    '0 4px 12px rgba(16, 185, 129, 0.3)'
                   ]
                 }}
                 transition={{ 
@@ -536,13 +536,13 @@ const Hero = () => {
               </motion.div>
               
               <motion.div
-                className="absolute top-1/2 -right-10 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-2xl shadow-lg shadow-green-500/20"
+                className="absolute top-1/2 -right-10 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-2xl shadow-lg shadow-green-500/30"
                 animate={{ 
                   y: [0, -12, 0],
                   boxShadow: [
-                    '0 4px 12px rgba(16, 185, 129, 0.2)',
-                    '0 8px 20px rgba(16, 185, 129, 0.4)',
-                    '0 4px 12px rgba(16, 185, 129, 0.2)'
+                    '0 4px 12px rgba(16, 185, 129, 0.3)',
+                    '0 8px 20px rgba(16, 185, 129, 0.5)',
+                    '0 4px 12px rgba(16, 185, 129, 0.3)'
                   ]
                 }}
                 transition={{ 
