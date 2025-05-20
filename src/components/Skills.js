@@ -55,11 +55,11 @@ const Skills = () => {
             <p>
               Hi Everyone, my name is V. Dedeep. I am a fresher currently searching for a job.
                I am passionate about web development, particularly React, and I am eager to apply 
-              my skills to create beautiful and user-friendly UI/UX designs.
+              my skills to create beautiful and user-friendly interfaces.
             </p>
 
             <p>
-              I have expertise in various programming languages including C, C++, Java, 
+              I have expertise in various programming languages including C++, Java, 
               Python and multiple database systems like MySQL and Oracle. My web development 
               skills span JavaScript, React, Node.js and templating engines like EJS.
             </p>
