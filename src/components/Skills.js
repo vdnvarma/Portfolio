@@ -26,6 +26,7 @@ const skillIcons = [
   { name: 'C++', icon: <SiCplusplus />, color: '#044F88' },
   { name: 'Java', icon: <FaJava />, color: '#ED8B00' },
   { name: 'Python', icon: <FaPython />, color: '#3776AB' },
+  { name: 'SQL', icon: <FaDatabase />, color: '#336791' },
   { name: 'MySQL', icon: <SiMysql />, color: '#4479A1' },
   { name: 'Oracle', icon: <SiOracle />, color: '#F80000' },
   { name: 'MongoDB', icon: <SiMongodb />, color: '#47A248' },
