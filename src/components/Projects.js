@@ -98,7 +98,7 @@ const projects = [
     ],
     links: {
       github: "https://github.com/vdnvarma/realtime-tracker",
-      demo: "https://realtime-tracker-beta.up.railway.app/"
+      demo: "https://realtime-tracker-oylw.onrender.com"
     }
   },
   {
