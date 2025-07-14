@@ -52,7 +52,7 @@ const projects = [
     ],
     links: {
       github: "https://github.com/vdnvarma/Postbook",
-      demo: "https://postbookbeta.onrender.com/"
+      demo: "https://postbookbeta-aa9t.onrender.com/"
     }
   },
   {
