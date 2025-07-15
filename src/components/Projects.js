@@ -52,7 +52,7 @@ const projects = [
     ],
     links: {
       github: "https://github.com/vdnvarma/Postbook",
-      demo: "https://postbookbeta-aa9t.onrender.com/"
+      demo: "https://postbookbeta.onrender.com"
     }
   },
   {
@@ -98,7 +98,7 @@ const projects = [
     ],
     links: {
       github: "https://github.com/vdnvarma/realtime-tracker",
-      demo: "https://realtime-tracker-oylw.onrender.com"
+      demo: "https://realtime-tracker-957d.onrender.com"
     }
   },
   {
