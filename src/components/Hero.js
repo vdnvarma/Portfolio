@@ -255,8 +255,11 @@ const TypewriterText = ({ texts }) => {
 
 // Modern animated scroll indicator
 const ScrollIndicator = () => {
+  const [showRipple, setShowRipple] = React.useState(false);
   // Function to scroll to about section
   const scrollToAbout = () => {
+    setShowRipple(true);
+    setTimeout(() => setShowRipple(false), 500);
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
       aboutSection.scrollIntoView({ behavior: 'smooth' });
@@ -271,16 +274,20 @@ const ScrollIndicator = () => {
       transition={{ delay: 1.5, duration: 1 }}
     >
       <motion.div
-        className="flex flex-col items-center cursor-pointer group"
+        className="flex flex-col items-center cursor-pointer group relative"
         onClick={scrollToAbout}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
       >
+        {/* Tooltip */}
+        <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-xs rounded bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20 shadow-lg">
+          Scroll to About
+        </span>
         <span className="text-green-500 text-sm mb-2 group-hover:text-green-400 transition-colors duration-300">
           Scroll Down
         </span>
         <motion.div
-          className="w-8 h-12 flex justify-center"
+          className="w-8 h-16 flex justify-center relative"
           animate={{ y: [0, 10, 0] }}
           transition={{ 
             duration: 1.5, 
@@ -289,26 +296,20 @@ const ScrollIndicator = () => {
             ease: "easeInOut" 
           }}
         >
-          <svg width="24" height="40" viewBox="0 0 24 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <motion.path 
-              d="M12 2L12 38M12 38L2 28M12 38L22 28" 
-              stroke="#10b981" 
-              strokeWidth="3" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ 
-                pathLength: 1, 
-                opacity: 1,
-              }}
-              transition={{
-                duration: 1.5,
-                ease: "easeInOut",
-                repeat: Infinity,
-                repeatType: "loop",
-                repeatDelay: 0.5
-              }}
-              className="group-hover:stroke-green-400 transition-colors duration-300"
+          {/* Ripple effect */}
+          {showRipple && (
+            <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-green-400/30 animate-ripple z-10"></span>
+          )}
+          {/* Elegant animated mouse icon */}
+          <svg width="32" height="64" viewBox="0 0 32 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-20">
+            <rect x="4" y="4" width="24" height="56" rx="12" stroke="#10b981" strokeWidth="3" fill="none" />
+            <motion.circle
+              cx="16"
+              cy="16"
+              r="6"
+              fill="#10b981"
+              animate={{ cy: [16, 44, 16] }}
+              transition={{ duration: 1.5, repeat: Infinity, repeatType: 'loop', ease: 'easeInOut' }}
             />
           </svg>
         </motion.div>
