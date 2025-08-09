@@ -58,6 +58,22 @@ const projects = [
   {
     id: "project4",
     number: "04",
+    title: "Library Management System",
+    description: "A Library Management System in Java is a software application that helps manage book inventories, member records, and book issuance/returns efficiently. It streamlines library operations through a user-friendly interface using Java and JDBC for database connectivity",
+    tags: [
+      { name: 'react', icon: "" },
+      { name: 'java', icon: "" },
+      { name: 'mysql', icon: "" },
+      { name: 'springboot', icon: "" },
+    ],
+    links: {
+      github: "https://github.com/vdnvarma/library_management_system",
+      demo: "https://lmsbeta.onrender.com"
+    }
+  },
+  {
+    id: "project5",
+    number: "05",
     title: "Ochi",
     description: "  Built a web interface inspired by Ochi using React.js, Framer Motion, and Locomotive Scroll, with smooth animations and responsive design.",
     tags: [
@@ -71,8 +87,8 @@ const projects = [
     }
   },
   {
-    id: "project5",
-    number: "05",
+    id: "project6",
+    number: "06",
     title: "Docs",
     description: "Developed a React JS webpage with draggable note cards, offering an interactive interface and seamless, responsive experience.",
     tags: [
@@ -86,8 +102,8 @@ const projects = [
     }
   },
   {
-    id: "project6",
-    number: "06",
+    id: "project7",
+    number: "07",
     title: "Real-Time Tracker",
     description: "Built a real-time tracker app using EJS, Express, and Node.js that displays users' live location. Utilized Geolocation API and Leaflet for map rendering and location tracking.",
     tags: [
@@ -102,8 +118,8 @@ const projects = [
     }
   },
   {
-    id: "project7",
-    number: "07",
+    id: "project8",
+    number: "08",
     title: "Weather App",
     description: "Developed a weather telecast project using HTML, CSS, and JavaScript, delivering real-time forecasts with engaging visuals for an interactive user experience.",
     tags: [
@@ -117,8 +133,8 @@ const projects = [
     }
   },
   {
-    id: "project8",
-    number: "08",
+    id: "project9",
+    number: "09",
     title: "Easy Travel",
     description: "Integrated HTML and CSS to develop a visually engaging and user-friendly travel interface, enabling users to explore destinations and customize itineraries with ease.",
     tags: [
@@ -133,8 +149,8 @@ const projects = [
     }
   },
   {
-    id: "project9",
-    number: "09",
+    id: "project10",
+    number: "10",
     title: "Dictionary App",
     description: "Crafted a dictionary app using React and Tailwind CSS, designed to fetch and display definitions, parts of speech, and examples through the Dictionary API.",
     tags: [
